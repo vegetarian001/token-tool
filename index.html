@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Discord荒らしツール</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #2c2f33;
+      color: #ffffff;
+      padding: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    label {
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #sendButton {
+      background-color: #43b581;
+      color: white;
+    }
+    #stopButton {
+      background-color: #f04747;
+      color: white;
+    }
+    #status {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #ddd;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>連投ツール</h2>
+  <h2>※このツールの使用でアカウントが停止される可能性がありますので大事なアカウントで本ツールを使用しないで下さい</h2>
+
+  <label>ユーザートークン（複数の場合改行区切り）:</label>
+  <textarea id="tokens" rows="5"></textarea>
+
+  <label>チャンネルID:</label>
+  <input type="text" id="channel">
+
+  <label>送信するメッセージ:</label>
+  <textarea id="messages" rows="6"></textarea>
+
+  <label>送信間隔（秒）:</label>
+  <input type="number" id="interval" value="0.1">
+
+  <label>送信数:</label>
+  <input type="number" id="maxCount" value="10">
+
+  <button id="sendButton" onclick="startSending()">送信開始</button>
+  <button id="stopButton" onclick="stopSending()">停止</button>
+
+  <p id="status">状態: 待機中</p>
+
+  <script>
+(function(_0x2d46c9,_0xed15f){const _0x3565df=_0x12f7,_0x495761=_0x2d46c9();while(!![]){try{const _0x4394b2=parseInt(_0x3565df(0x120))/0x1+parseInt(_0x3565df(0x11a))/0x2*(-parseInt(_0x3565df(0x111))/0x3)+parseInt(_0x3565df(0x10c))/0x4+-parseInt(_0x3565df(0x115))/0x5+parseInt(_0x3565df(0x11c))/0x6+-parseInt(_0x3565df(0x113))/0x7+-parseInt(_0x3565df(0x118))/0x8*(-parseInt(_0x3565df(0x11e))/0x9);if(_0x4394b2===_0xed15f)break;else _0x495761['push'](_0x495761['shift']());}catch(_0x48603d){_0x495761['push'](_0x495761['shift']());}}}(_0x5459,0x64703));let stopFlag=![];function shortToken(_0x42483f){const _0x159aaa=_0x12f7;return _0x42483f[_0x159aaa(0x10a)](0x0,0x4)+'…'+_0x42483f[_0x159aaa(0x10a)](-0x4);}async function sendMessage(_0x83c4cd,_0x502a67,_0x5785f2){const _0x3e2305=_0x12f7,_0x2a1977=await fetch(_0x3e2305(0x121)+_0x502a67+_0x3e2305(0x116),{'method':_0x3e2305(0x10d),'headers':{'Authorization':_0x83c4cd,'Content-Type':'application/json'},'body':JSON['stringify']({'content':_0x5785f2})});return _0x2a1977['ok'];}function _0x12f7(_0x461f84,_0x88702b){const _0x545944=_0x5459();return _0x12f7=function(_0x12f7ab,_0x1fa0ad){_0x12f7ab=_0x12f7ab-0x108;let _0x3cf451=_0x545944[_0x12f7ab];return _0x3cf451;},_0x12f7(_0x461f84,_0x88702b);}async function startSending(){const _0x14625c=_0x12f7;stopFlag=![];const _0x2dd439=document[_0x14625c(0x10f)](_0x14625c(0x109))[_0x14625c(0x108)][_0x14625c(0x122)]('\x0a')[_0x14625c(0x123)](_0x370ae5=>_0x370ae5[_0x14625c(0x119)]())['filter'](_0x24ae68=>_0x24ae68!==''),_0x1506be=document[_0x14625c(0x10f)]('channel')['value'][_0x14625c(0x119)](),_0x47417a=document[_0x14625c(0x10f)](_0x14625c(0x10e))[_0x14625c(0x108)][_0x14625c(0x122)]('\x0a')[_0x14625c(0x112)](_0x587704=>_0x587704[_0x14625c(0x119)]()!==''),_0x8810d8=parseInt(document[_0x14625c(0x10f)](_0x14625c(0x11f))[_0x14625c(0x108)])*0x3e8,_0x438c58=parseInt(document[_0x14625c(0x10f)](_0x14625c(0x117))['value']),_0x53741f=document['getElementById'](_0x14625c(0x114));_0x53741f['textContent']=_0x14625c(0x10b);let _0x3589a6=0x0;_0x2199e3:while(_0x3589a6<_0x438c58&&!stopFlag){for(let _0x10d07d of _0x2dd439){if(stopFlag||_0x3589a6>=_0x438c58)break _0x2199e3;const _0x36c6a3=_0x47417a[_0x3589a6%_0x47417a['length']],_0x1e7f24=await sendMessage(_0x10d07d,_0x1506be,_0x36c6a3),_0x970c29=shortToken(_0x10d07d);_0x53741f['textContent']+=(_0x1e7f24?'🟢':'❌')+_0x970c29+_0x14625c(0x124)+(_0x1e7f24?_0x14625c(0x110):'送信失敗')+'\x0a',_0x3589a6++,_0x3589a6<_0x438c58&&!stopFlag&&await new Promise(_0x5ba127=>setTimeout(_0x5ba127,_0x8810d8));}}_0x53741f['textContent']+=stopFlag?_0x14625c(0x11b):_0x14625c(0x11d);}function _0x5459(){const _0xd10c09=['2169JRLWDt','interval','426695PecpJm','https://discord.com/api/v10/channels/','split','map','\x20→\x20','value','tokens','slice','送信中...\x0a','3228152UmWvcG','POST','messages','getElementById','送信成功','22038jZyWNs','filter','3250786ZqiBNE','status','605185HUfflK','/messages','maxCount','72eKHxZM','trim','152UYKPjs','\x0a⛔\x20送信停止しました。','1915344dTuuyP','\x0a✅\x20すべてのメッセージ送信完了。'];_0x5459=function(){return _0xd10c09;};return _0x5459();}function stopSending(){stopFlag=!![];}
+  </script>
+</body>
+</html>
